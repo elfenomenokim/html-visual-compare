@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "html-visual-compare"
+version = "0.2.0"
+description = "A command-line tool and Python library that screenshot a reference and a candidate page, then score and report the visual difference."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "El Fenomeno" }]
+keywords = ["visual-regression", "screenshot", "playwright", "cli", "python", "screenshot-diff", "design-review"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Multimedia :: Graphics",
+]
+dependencies = ["numpy>=1.24", "Pillow>=9.2", "playwright>=1.40"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/elfenomenokim/html-visual-compare"
+Repository = "https://github.com/elfenomenokim/html-visual-compare"
+Issues = "https://github.com/elfenomenokim/html-visual-compare/issues"
+
+[project.scripts]
+html-visual-compare = "html_visual_compare.core:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

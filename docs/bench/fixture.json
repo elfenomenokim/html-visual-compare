@@ -1,0 +1,32 @@
+{
+  "schema": "html-visual-compare-bench/1",
+  "date": "2026-11-19",
+  "host": "macOS arm64 (Apple M5 Pro)",
+  "python": "3.12.8",
+  "fixture": {
+    "reference": "docs/demo/a.html",
+    "candidate": "docs/demo/b.html"
+  },
+  "pair": {
+    "1440": {
+      "layout_similarity": 99.82,
+      "image_similarity": 97.66,
+      "likeness": 98.74
+    },
+    "768": {
+      "layout_similarity": 99.67,
+      "image_similarity": 95.83,
+      "likeness": 97.75
+    },
+    "390": {
+      "layout_similarity": 99.36,
+      "image_similarity": 92.62,
+      "likeness": 95.99
+    }
+  },
+  "identical_likeness": {
+    "1440": 100.0,
+    "768": 100.0,
+    "390": 100.0
+  }
+}

@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose a new signal, output format, or capture option.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you cannot see or compare today, with the page pair that needs it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: The argument, signal, or output you want. Name the caller that needs it.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried instead
+      description: Another tool, a manual screenshot, or nothing.
+    validations:
+      required: false
+  - type: dropdown
+    id: score
+    attributes:
+      label: Does this change how `likeness` is computed?
+      options:
+        - "No, it is additional output"
+        - "Yes, and I explain why the weights must move"
+        - "I am not sure"
+    validations:
+      required: true

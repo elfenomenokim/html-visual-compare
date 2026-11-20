@@ -1,0 +1,50 @@
+name: Bug report
+description: A capture failed, the run crashed, or a score does not match what you see.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: For a security problem, do not use this form. Use the Security tab advisory instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `pip show html-visual-compare`, or the commit you ran.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: macOS 26 arm64, Python 3.12.8, Playwright 1.4x
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: The command
+      description: Include `--widths`, `--browser` and `VISUAL_COMPARE_BROWSER` when you set them.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Inputs
+      description: The URLs, or two small HTML files that reproduce it.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual
+      description: The scores or the error you expected, and the ones you got.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Which browser was used
+      description: The value of `VISUAL_COMPARE_BROWSER` or `--browser`, if any.
+    validations:
+      required: false
