@@ -8,6 +8,8 @@ A command-line tool and Python library that screenshot a reference and a candida
 
 [한국어](README.ko.md) · Python 3.9+
 
+[![pypi](https://img.shields.io/pypi/v/html-visual-compare?label=pypi)](https://pypi.org/project/html-visual-compare/)
+[![tests](https://github.com/elfenomenokim/html-visual-compare/actions/workflows/tests.yml/badge.svg)](https://github.com/elfenomenokim/html-visual-compare/actions/workflows/tests.yml)
 [![license](https://img.shields.io/github/license/elfenomenokim/html-visual-compare)](LICENSE)
 
 [Install](#install) · [Quick start](#quick-start) · [Why](#why) · [Reference](#reference)

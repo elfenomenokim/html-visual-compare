@@ -8,6 +8,8 @@
 
 [English](README.md) · Python 3.9+
 
+[![pypi](https://img.shields.io/pypi/v/html-visual-compare?label=pypi)](https://pypi.org/project/html-visual-compare/)
+[![tests](https://github.com/elfenomenokim/html-visual-compare/actions/workflows/tests.yml/badge.svg)](https://github.com/elfenomenokim/html-visual-compare/actions/workflows/tests.yml)
 [![license](https://img.shields.io/github/license/elfenomenokim/html-visual-compare)](LICENSE)
 
 [설치](#설치) · [빠른-시작](#빠른-시작) · [왜-필요한가](#왜-필요한가) · [레퍼런스](#레퍼런스)
