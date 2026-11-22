@@ -31,13 +31,13 @@
 ## 설치
 
 ```sh
-pipx install html-visual-compare
-uv tool install html-visual-compare
-pip install html-visual-compare
-python3 -m playwright install chromium
+uv tool install html-visual-compare --with-executables-from playwright
+playwright install chromium
 ```
 
-Python 3.9 이상, `numpy`, `Pillow`, `playwright`가 필요합니다. 브라우저 설치를 따로 둔 이유는 Playwright가 자기 Chromium을 내려받기 때문입니다. 이미 있는 브라우저를 쓸 때는 `--browser`를 주십시오. macOS arm64 · Python 3.12에서 확인했습니다.
+가상환경 안에서는 `pip install html-visual-compare`와 `python3 -m playwright install chromium`으로도 됩니다.
+
+Python 3.9 이상, `numpy`, `Pillow`, `playwright`가 필요합니다. 브라우저 설치를 따로 둔 이유는 Playwright가 자기 Chromium을 내려받기 때문입니다. Google Chrome이나 Chromium이 이미 깔려 있으면 도구가 찾아 쓰므로 이 단계를 건너뛰어도 되고, 직접 고른 브라우저는 `--browser`로 줍니다. `--with-executables-from playwright`는 `playwright` 명령을 `html-visual-compare` 옆 PATH에 놓습니다. 이 옵션이 없으면 도구 설치에서는 `playwright install`을 실행할 방법이 없습니다. macOS arm64 · Python 3.12에서 확인했습니다.
 
 ## 빠른 시작
 

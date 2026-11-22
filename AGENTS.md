@@ -1,5 +1,27 @@
 # AGENTS.md
 
+## Set up for a user
+
+Goal: `html-visual-compare` scores how alike two web pages look (layout and image) and writes a side-by-side `report.html`. Nothing here needs the person except which pages to compare.
+
+1. Check what is present.
+   - `uv --version` prints a version. If not: `curl -LsSf https://astral.sh/uv/install.sh | sh`, then `export PATH="$HOME/.local/bin:$PATH"` (or open a new shell).
+   - A browser: Google Chrome or Chromium installed is enough (`ls "/Applications/Google Chrome.app"` on macOS, `command -v google-chrome chromium` on Linux). If none, step 3 downloads Playwright's own Chromium (about 150 MB).
+2. Install: `uv tool install html-visual-compare --with-executables-from playwright`. It ends with `Installed 1 executable: html-visual-compare`. (`--with-executables-from` also puts `playwright` on PATH, which step 3 needs.) `uv tool update-shell` puts `~/.local/bin` on PATH for later shells.
+3. Only if step 1 found no browser: `playwright install chromium`. On Linux add `playwright install-deps chromium` (it uses sudo; tell the user before running it).
+4. Prove it on two scratch pages:
+   ```sh
+   d=$(mktemp -d); echo '<h1 style="color:#123">Hello</h1><p>a</p>' > $d/a.html; echo '<h1 style="color:#321">Hello</h1><p>b</p>' > $d/b.html
+   html-visual-compare --reference $d/a.html --candidate-html $d/b.html --output-dir $d/out --widths 800
+   ```
+   It prints one JSON object whose `results[0]` has `layout_similarity`, `image_similarity` and `likeness` near `99`, and `$d/out/report.html` exists. Delete `$d` afterwards. Then ask the user for the two real pages ("비교할 두 페이지(URL 또는 HTML 파일)를 알려주세요") and run with `--reference URL --candidate-html FILE` (or `--candidate URL`).
+5. If it fails, in this order:
+   - `html-visual-compare: command not found`: `~/.local/bin` is not on PATH (step 2).
+   - `playwright._impl._errors.Error: Executable doesn't exist`: no usable browser; run step 3, or pass `--browser /path/to/chrome`.
+   - `--browser is not a file`: the path is wrong; omit `--browser` to auto-detect.
+   - A page times out: raise `--timeout-ms`, and check the URL opens in a normal browser; the tool does not sign in.
+   - Scores below 100 for the same page twice are normal (anti-aliasing); compare against a threshold the user chooses.
+
 ## Layout
 
 - `src/html_visual_compare/core.py`: capture, scoring, region extraction, the `compare()` API and the CLI.

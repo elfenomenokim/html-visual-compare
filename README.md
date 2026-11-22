@@ -31,13 +31,13 @@ Layout (element positions and sizes) and image (pixels) are scored separately, a
 ## Install
 
 ```sh
-pipx install html-visual-compare
-uv tool install html-visual-compare
-pip install html-visual-compare
-python3 -m playwright install chromium
+uv tool install html-visual-compare --with-executables-from playwright
+playwright install chromium
 ```
 
-Python 3.9+, plus `numpy`, `Pillow` and `playwright`. The browser step is separate because Playwright downloads its own Chromium; pass `--browser` to use one you already have. Verified on macOS arm64 with Python 3.12.
+Or inside a virtual environment: `pip install html-visual-compare` and `python3 -m playwright install chromium`.
+
+Python 3.9+, plus `numpy`, `Pillow` and `playwright`. The browser step is separate because Playwright downloads its own Chromium, and you can skip it when Google Chrome or Chromium is already installed (the tool finds it) or pass `--browser` to use one you choose. `--with-executables-from playwright` puts the `playwright` command on PATH next to `html-visual-compare`; without it a tool install has no way to run `playwright install`. Verified on macOS arm64 with Python 3.12.
 
 ## Quick start
 
